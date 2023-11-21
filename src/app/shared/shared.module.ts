@@ -16,6 +16,12 @@ import { ScheduledTimeComponent } from './components/scheduled-time/scheduled-ti
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    ModalComponent,
+    ScheduledTimeComponent
   ]
 })
 export class SharedModule { }
