@@ -1,5 +1,75 @@
 @import '../../../styles/variables.scss';
 
-p {
-  font-family: $montserrat;
+.home {
+  align-items: center;
+  background-color: $white;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 81vh;
+  position: relative;
+  top: 25px;
+
+  .home-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-logo {
+    width: 230px;
+    height: 200px;
+  }
+
+  .home-description {
+    position: relative;
+    bottom: 37px;
+    margin: 0 15px;
+
+    &__title {
+      color: $red-title;
+      font-size: 2.938rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    &__subtitle {
+      color: $red-title;
+      font-size: 1.188rem;
+      margin: 0;
+      margin-bottom: 100px;
+      text-align: center;
+    }
+  }
+
+  .home-initial-button {
+    background-color: $blue-base;
+    border: none;
+    border-radius: 28px;
+    display: inline-block;
+    cursor: pointer;
+    color: $white;
+    font-family: $montserrat;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding: 8px 100px;
+    text-decoration: none;
+  }
+
+  .home-initial-button:hover {
+    background-color: $blue-darkest;
+  }
+
+  .home-initial-button:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.home-footer {
+  background-color: $red-base;
+  height: 19vh;
+  z-index: -1;
 }

@@ -7,6 +7,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { MapComponent } from './modules/map/map.component';
 import { FavoritesScheduleTimeComponent } from './modules/favorites-schedule-time/favorites-schedule-time.component';
 import { ListScheduleTimeComponent } from './modules/list-schedule-time/list-schedule-time.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListScheduleTimeComponent } from './modules/list-schedule-time/list-sch
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
