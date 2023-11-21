@@ -1,0 +1,25 @@
+@import '/src/styles/variables.scss';
+
+.footer {
+  background-color: $white;
+  display: flex;
+  height: 11vh;
+  justify-content: space-around;
+  border-top: 4px solid $red-base;
+
+  .footer-button {
+    background-color: transparent;
+    border: none;
+    color: $red-base;
+
+    &__icon {
+      font-size: 50px;
+      font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &__icon:hover {
+      color: $red-title;
+      cursor: pointer;
+    }
+  }
+}
