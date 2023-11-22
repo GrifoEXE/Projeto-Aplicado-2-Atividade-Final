@@ -1,3 +1,9 @@
-<p>modal works!</p>
-
-<!-- modal que será exibida na tela do mapa com informações da parada -->
+<ng-container *ngIf="show" class="modal">
+  <div class="modal__information" @modal>
+    <ng-content></ng-content>
+  </div>
+  <div class="modal__actions" @modal>
+    <button class="modal__button" (click)="toggle()">Voltar</button>
+  </div>
+  <div (click)="toggle()" @overlay class="modal__overlay"></div>
+</ng-container>

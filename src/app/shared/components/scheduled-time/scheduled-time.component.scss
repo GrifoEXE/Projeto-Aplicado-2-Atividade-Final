@@ -56,3 +56,48 @@
     font-size: 2.5rem;
   }
 }
+
+.modal {
+  &__data {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 25px;
+    padding: 6px;
+    font-family: $montserrat;
+  }
+
+  &__button-point {
+    background-color: $blue-base;
+    border: none;
+    border-radius: 50%;
+    color: $white;
+    font-family: $montserrat;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 21px 30px 23px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: $montserrat;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    color: $black;
+    font-weight: 700;
+    font-family: $montserrat;
+
+    &--middle {
+      font-size: 1.3rem;
+    }
+
+    &--smaller {
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <div class="schedule">
   <div class="schedule__data">
-    <button class="schedule__button-point">
+    <button class="schedule__button-point" (click)="modal.toggle()">
       {{ data.point }}
     </button>
     <span class="schedule__date">{{ data.date }}</span>
@@ -11,3 +11,18 @@
     </span>
   </button>
 </div>
+
+<app-modal #modal>
+  <div class="modal">
+    <div class="modal__data">
+      <span class="modal__button-point">
+        {{ data.point }}
+      </span>
+      <div class="modal__info">
+        <span class="modal__text">{{ data.name }}</span>
+        <span class="modal__text modal__text--middle">Endereço:</span>
+        <span class="modal__text modal__text--smaller">{{ data.address }}</span>
+      </div>
+    </div>
+  </div>
+</app-modal>
