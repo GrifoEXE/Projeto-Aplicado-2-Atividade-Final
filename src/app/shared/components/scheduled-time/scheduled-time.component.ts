@@ -1,4 +1,8 @@
+
+
 import { Component, Input } from '@angular/core';
+import { ScheduleTime } from '../../interfaces/schedule-time.interface';
+
 
 @Component({
   selector: 'app-scheduled-time',
@@ -6,12 +10,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./scheduled-time.component.scss']
 })
 export class ScheduledTimeComponent {
-  @Input() data = {
-    point: 'A',
-    date: 'SEG - 08:00',
-    name: 'PARADA A',
-    address: 'Rua Pinto Martins 346, Cambeba',
-    city: 'FORTALEZA'
-  }
-
+  @Input() data: ScheduleTime | undefined;
 }
