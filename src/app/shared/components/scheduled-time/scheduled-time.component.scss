@@ -1,0 +1,58 @@
+@import '/src/styles/variables.scss';
+
+.schedule {
+  align-items: center;
+  background-color: $gray-box;
+  border: 2px solid $black;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 9px 6px;
+
+  &__data {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  &__button-point {
+    background-color: $blue-base;
+    border: none;
+    border-radius: 50%;
+    color: $white;
+    font-family: $montserrat;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 7px 12px 9px;
+
+    &:hover {
+      background-color: $blue-darkest;
+      cursor: pointer;
+    }
+  }
+
+  &__date {
+    color: $black;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  &__button-favorite {
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      color: $yellow-star;
+      cursor: pointer;
+    }
+  }
+
+  &__icon-favorite {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+    font-size: 2.5rem;
+  }
+}
