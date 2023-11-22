@@ -1,3 +1,20 @@
-<p>map works!</p>
-
-<!-- Tela com mapa de localização -->
+<section class="map__component">
+  <h3>MAPA</h3>
+    <div>
+      <p>Tempo estimado: {{ durationInSeconds / 60 }}</p>
+      <p>Distancia em metros: {{ distanceInMeters }}</p>
+    </div>
+    <agm-map class="google-map" *ngIf="carPosition && polylineCoordinates.length > 0"
+        [latitude]="carPosition.latitude"
+        [longitude]="carPosition.longitude"
+        [zoom]="14"
+      >
+      <agm-marker [latitude]="carPosition.latitude" [longitude]="carPosition.longitude" title="Bus"></agm-marker>
+      <agm-polyline class="polyline" [editable]="false" strokeColor="#247ba0" [strokeWeight]="3">
+        <agm-polyline-point *ngFor="let coordinate of polylineCoordinates"
+          [latitude]="coordinate.latitude"
+          [longitude]="coordinate.longitude"  >
+        </agm-polyline-point>
+      </agm-polyline>
+  </agm-map>
+</section>

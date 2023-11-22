@@ -8,6 +8,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
+## Development gcp api
+
+Run `npm run gcp:api` for run gcp apis (geocode and directions) apis for real-time localization tracking.
+- You need to create an API key in GCP to associate with the active GCP services of MAPS
+- To render google maps it is also necessary to activate the Maps Javascript api to integrate with the angular lib
+
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
