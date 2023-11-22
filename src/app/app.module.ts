@@ -8,6 +8,7 @@ import { MapComponent } from './modules/map/map.component';
 import { FavoritesScheduleTimeComponent } from './modules/favorites-schedule-time/favorites-schedule-time.component';
 import { ListScheduleTimeComponent } from './modules/list-schedule-time/list-schedule-time.component';
 import { SharedModule } from './shared/shared.module';
+import { MainframeComponent } from './modules/mainframe/pages/mainframe.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     MapComponent,
     FavoritesScheduleTimeComponent,
-    ListScheduleTimeComponent
+    ListScheduleTimeComponent,
+    MainframeComponent
   ],
   imports: [
     BrowserModule,
