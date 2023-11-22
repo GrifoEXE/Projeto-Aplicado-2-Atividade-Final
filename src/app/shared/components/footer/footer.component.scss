@@ -1,16 +1,16 @@
 @import '/src/styles/variables.scss';
 
 .footer {
-  background-color: $white;
   display: flex;
   height: 11vh;
   justify-content: space-around;
-  border-top: 4px solid $red-base;
 
   .footer-button {
-    background-color: transparent;
+    background-color: $white;
     border: none;
     color: $red-base;
+    width: 33%;
+    border-top: 4px solid $white;
 
     &__icon {
       font-size: 50px;
@@ -20,6 +20,14 @@
         color: $red-title;
         cursor: pointer;
       }
+
+      &--toggle {
+        border-top: 4px solid $red-base;
+      }
+    }
+
+    &:hover {
+      border-top: 4px solid $red-base;
     }
   }
 }
