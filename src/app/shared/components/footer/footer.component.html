@@ -1,15 +1,16 @@
 <section class="footer">
-  <button class="footer-button" (click)="navigateToMap()">
+  <button class="footer-button" (click)="navigateToMap()" [ngClass]="{'footer-button__icon--toggle': toggleMap }">
     <span class="footer-button__icon material-symbols-outlined">
       pin_drop
     </span>
   </button>
-  <button class="footer-button" (click)="navigateToList()">
+  <button class="footer-button" (click)="navigateToList()" [ngClass]="{'footer-button__icon--toggle': toggleList}">
     <span class="footer-button__icon material-symbols-outlined">
       list_alt
     </span>
   </button>
-  <button class="footer-button" (click)="navigateToFavorites()">
+  <button class="footer-button" (click)="navigateToFavorites()"
+    [ngClass]="{'footer-button__icon--toggle': toggleFavorites}">
     <span class="footer-button__icon material-symbols-outlined">
       stars
     </span>
