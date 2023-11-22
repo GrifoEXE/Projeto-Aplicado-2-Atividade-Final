@@ -56,15 +56,15 @@
     margin-bottom: 40px;
     padding: 8px 100px;
     text-decoration: none;
-  }
 
-  .home-initial-button:hover {
-    background-color: $blue-darkest;
-  }
+    &:hover {
+      background-color: $blue-darkest;
+    }
 
-  .home-initial-button:active {
-    position: relative;
-    top: 1px;
+    &:active {
+      position: relative;
+      top: 1px;
+    }
   }
 }
 

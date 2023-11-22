@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scheduled-time',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./scheduled-time.component.scss']
 })
 export class ScheduledTimeComponent {
-
+  @Input() data = {
+    point: 'A',
+    date: 'SEG - 08:00'
+  }
 }
