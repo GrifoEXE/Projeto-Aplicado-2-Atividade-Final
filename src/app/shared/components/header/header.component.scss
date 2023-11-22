@@ -1,0 +1,41 @@
+@import '/src/styles/variables.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $red-base;
+  height: 9vh;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__menu-icon {
+    color: $white;
+    font-size: 40px;
+    font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 24;
+    margin-left: 20px;
+
+    &:hover {
+      color: $gray-box;
+    }
+  }
+
+  &__hour {
+    color: $white;
+    font-size: 1.688rem;
+    font-weight: 700;
+    padding-right: 60px;
+    position: relative;
+    top: 4px;
+  }
+}

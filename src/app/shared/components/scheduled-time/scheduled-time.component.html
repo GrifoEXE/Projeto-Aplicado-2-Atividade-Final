@@ -1,3 +1,13 @@
-<p>scheduled-time works!</p>
-
-<!-- unidade de horário marcado do ponto a ser utilizado na tela de listagem dos horários marcados e em favoritos -->
+<div class="schedule">
+  <div class="schedule__data">
+    <button class="schedule__button-point">
+      {{ data.point }}
+    </button>
+    <span class="schedule__date">{{ data.date }}</span>
+  </div>
+  <button class="schedule__button-favorite">
+    <span class="schedule__icon-favorite material-symbols-outlined">
+      star
+    </span>
+  </button>
+</div>

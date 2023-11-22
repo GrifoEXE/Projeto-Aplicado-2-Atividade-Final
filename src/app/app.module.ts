@@ -9,6 +9,8 @@ import { FavoritesScheduleTimeComponent } from './modules/favorites-schedule-tim
 import { ListScheduleTimeComponent } from './modules/list-schedule-time/list-schedule-time.component';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
+import { MainframeComponent } from './modules/mainframe/pages/mainframe.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MapComponent,
     FavoritesScheduleTimeComponent,
-    ListScheduleTimeComponent
+    ListScheduleTimeComponent,
+    MainframeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
       apiKey: '',
       libraries: ['places', 'drawing', 'geometry']
     }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
