@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class ScheduledTimeComponent {
   @Input() data = {
     point: 'A',
-    date: 'SEG - 08:00'
+    date: 'SEG - 08:00',
+    name: 'PARADA A',
+    address: 'Rua Pinto Martins 346, Cambeba',
+    city: 'FORTALEZA'
   }
+
 }
