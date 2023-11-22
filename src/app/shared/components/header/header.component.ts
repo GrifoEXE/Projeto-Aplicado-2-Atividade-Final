@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTime();
-    setInterval(() => { this.loadTime() }, 5000);
+    setInterval(() => { this.loadTime() }, 1000);
   }
 
   public navigateToHome(): void {
