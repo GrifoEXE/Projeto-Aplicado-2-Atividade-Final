@@ -1,32 +1,61 @@
 <section class="map__component">
-    <div *ngIf="waypoints.length > 0">
-      <p>Tempo estimado: <strong>{{ waypoints[0].duration }}</strong></p>
-      <p>Distancia: <strong>{{ waypoints[0].distance }}</strong></p>
-    </div>
+
     <agm-map class="google-map" *ngIf="carPosition && polylineCoordinates.length > 0"
         [latitude]="carPosition.latitude"
         [longitude]="carPosition.longitude"
         [zoom]="14"
-      >
+        >
       <agm-marker class="marker"
         [latitude]="carPosition.latitude"
         [longitude]="carPosition.longitude"
         title="Bus"
         label="T"
-        ></agm-marker>
+      >
+        <agm-info-window>
+          <div>
+            <p>Ponto de partida: <strong>{{ waypoints[0].name }}</strong></p>
+            <p>Ponto de chegada: <strong>{{ waypoints[waypoints.length - 1].name }}</strong></p>
+            <p>Tempo estimado: <strong>{{ waypoints[0].duration }}</strong></p>
+            <p>Distancia: <strong>{{ waypoints[0].distance }}</strong></p>
+        </div>
+        </agm-info-window>
+      </agm-marker>
 
       <agm-polyline class="polyline" [editable]="false" strokeColor="#247ba0" [strokeWeight]="3">
         <agm-polyline-point *ngFor="let coordinate of polylineCoordinates; trackBy: trackByCoordinate"
           [latitude]="coordinate.latitude"
-          [longitude]="coordinate.longitude"  >
+          [longitude]="coordinate.longitude">
         </agm-polyline-point>
       </agm-polyline>
 
-      <agm-marker class="waypoint-marker" *ngFor="let waypoint of waypoints"
+      <agm-marker class="waypoint-marker" *ngFor="let waypoint of waypoints; let i = index"
         [latitude]="waypoint.latitude"
         [longitude]="waypoint.longitude"
-        title={{waypoint.name}}
-        [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'"
+        title="Parada"
+        [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'">
+        <agm-info-window>
+            <div *ngIf="i === 0">
+                <p>{{ waypoint.name }}</p>
+                <p>Ponto de partida</p>
+            </div>
+            <div *ngIf="i === waypoints.length - 1">
+                <p>{{ waypoint.name }}</p>
+                <p>Ponto de chegada</p>
+            </div>
+            <div *ngIf="i !== 0 && i !== waypoints.length - 1">
+              <p>{{ waypoint.name }}</p>
+              <p>Distância: {{ waypoint.distance }}</p>
+              <p>Duração: {{ waypoint.duration }}</p>
+            </div>
+        </agm-info-window>
+    </agm-marker>
+
+      <agm-marker class="marker" *ngIf="currentUserPosition"
+        [latitude]="currentUserPosition.latitude"
+        [longitude]="currentUserPosition.longitude"
+        label="U"
+        title="User"
+        [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'"
         ></agm-marker>
   </agm-map>
 </section>

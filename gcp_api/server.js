@@ -16,7 +16,6 @@ const cache = new NodeCache();
 app.post('/api/directions', async (req, res) => {
   let { origin, destination, waypoints } = req.body;
 
-  // Função para obter coordenadas geográficas a partir de um endereço
   const geocodeAddress = async (address) => {
     const cacheKey = `geocode-${address}`;
     const cachedResponse = cache.get(cacheKey);
@@ -35,23 +34,19 @@ app.post('/api/directions', async (req, res) => {
 
     const location = geocodeResponse.data.results[0].geometry.location;
 
-    // Armazena a resposta no cache por um determinado período por 5 minutos
     cache.set(cacheKey, `${location.lat},${location.lng}`, 3600);
 
     return `${location.lat},${location.lng}`;
   };
 
-  // Converte os endereços em coordenadas geográficas
   origin = await geocodeAddress(origin);
   destination = await geocodeAddress(destination);
   waypoints = await Promise.all(waypoints.map(geocodeAddress));
 
-  // Monta a string de waypoints para a solicitação de direções
   const waypointsString = waypoints.length > 0 ? `&waypoints=${waypoints.join('|')}` : '';
 
   const cacheKeyDirections = `directions-${origin}-${destination}-${waypointsString}`;
 
-  // Verifica se a resposta está em cache
   const cachedResponseDirections = cache.get(cacheKeyDirections);
   if (cachedResponseDirections) {
     console.log('Retornando resposta do cache (directions)');
@@ -76,7 +71,6 @@ app.post('/api/directions', async (req, res) => {
       })
     };
 
-    // Armazena a resposta no cache por um determinado período por 5 minutos
     cache.set(cacheKeyDirections, modifiedResponse, 3600);
 
     res.json(modifiedResponse);

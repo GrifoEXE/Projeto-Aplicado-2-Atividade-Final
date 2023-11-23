@@ -22,20 +22,27 @@ export class MapService {
         if (response.status === 'OK' && response.routes && response.routes.length > 0) {
 
           const route = response.routes[0];
-
           const waypointsCoordinates = response.waypoints;
 
-          waypointsCoordinates.shift();
-          waypointsCoordinates.pop();
-
           if (route.overview_polyline && route.overview_polyline.points) {
-            const coordinates = this.decodePolyline(route.overview_polyline.points);
+
+            const stepPolylines = route.legs.reduce((polylines: any[], leg: { steps: any[]; }) => {
+              leg.steps.forEach((step: { polyline: { points: any; }; }) => {
+                polylines.push(step.polyline.points);
+              });
+              return polylines;
+            }, []);
+
+            const coordinates = stepPolylines.map((polyline: string) => this.decodePolyline(polyline)).flat();
             const durationInSeconds = route.legs.reduce((total: number, leg: any) => total + leg.duration.value, 0);
             const distanceInMeters = route.legs.reduce((total: number, leg: any) => total + leg.distance.value, 0);
 
             const stepNames = stops;
             stepNames.shift();
             stepNames.pop();
+
+            waypointsCoordinates.shift();
+            waypointsCoordinates.pop();
 
             // Mapeie os waypoints para incluir nome, latitude, longitude e informações dos passos
             const waypoints = route.legs.reduce((acc: any[], leg: any) => {

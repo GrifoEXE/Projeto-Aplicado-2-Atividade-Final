@@ -12,6 +12,8 @@ export class MapComponent implements OnInit {
   carPosition: CoordinatesProperties | null = null;
   polylineCoordinates: CoordinatesProperties[] = []
   waypoints: any[] = [];
+  currentUserPosition: CoordinatesProperties | null = null;
+  nextWaypoint: any | null = null;
 
   coordinates: CoordinatesProperties[] = [];
   durationInSeconds: number = 0;
@@ -25,12 +27,20 @@ export class MapComponent implements OnInit {
     const startLocation: CoordinatesProperties = { latitude: -3.7445, longitude: -38.4905 };
     const destinationLocation: CoordinatesProperties = { latitude: -3.7445, longitude: -38.4905 };
 
-    // Initialize car position
     this.carPosition = startLocation;
 
-    // Get route coordinates between start and destination
     this.getRouteCoordinates(startLocation, destinationLocation);
+    this.getLocation();
+  }
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.currentUserPosition = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+      });
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
   }
 
 
@@ -40,9 +50,6 @@ export class MapComponent implements OnInit {
 
       this.coordinates = res.coordinates;
       this.polylineCoordinates = res.coordinates;
-
-      console.log(res)
-
       this.waypoints = res.waypoints;
 
       this.simulateCarMovement(this.coordinates);
@@ -57,7 +64,9 @@ export class MapComponent implements OnInit {
 
   async simulateCarMovement(coordinates: CoordinatesProperties[]): Promise<void> {
     for (const element of coordinates) {
-      this.carPosition = element;
+      if (this.carPosition?.latitude !== element.latitude || this.carPosition?.longitude !== element.longitude) {
+        this.carPosition = element;
+      }
       await this.delay(5000);
     }
   }

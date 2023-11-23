@@ -12,7 +12,7 @@ const stops = [
   'Rua Tenente Benévolo, 765, Centro, Fortaleza, Ceará, Brasil',
   'Rua Tenente Benévolo, 595, Centro, Fortaleza, Ceará, Brasil',
   'Rua Tenente Benévolo | Faculdade Católica De Fortaleza - Centro, Fortaleza, Ceará, Brasil',
-  // 'Avenida Dom Manuel, 140, Centro, Fortaleza, Ceará, Brasil',
+  'Avenida Dom Manuel, 140, Centro, Fortaleza, Ceará, Brasil',
   // 'Avenida Dom Manuel, 470, Centro, Fortaleza, Ceará, Brasil',
   // 'Avenida Dom Manuel | Praça Pajeú - Centro, Fortaleza, Ceará, Brasil',
   // 'Avenida Heráclito Graça | Hospital Luís França - Centro, Fortaleza, Ceará, Brasil',
