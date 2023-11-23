@@ -1,12 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const NodeCache = require('node-cache');
 const app = express();
 const port = 3000;
-const dotenv = require('dotenv');
 
-dotenv.config();
 app.use(express.json());
 app.use(cors());
 
@@ -32,10 +32,11 @@ app.post('/api/directions', async (req, res) => {
         key: apiKey,
       },
     });
+
     const location = geocodeResponse.data.results[0].geometry.location;
 
     // Armazena a resposta no cache por um determinado período por 5 minutos
-    cache.set(cacheKey, `${location.lat},${location.lng}`, 300);
+    cache.set(cacheKey, `${location.lat},${location.lng}`, 3600);
 
     return `${location.lat},${location.lng}`;
   };
@@ -67,10 +68,18 @@ app.post('/api/directions', async (req, res) => {
       },
     });
 
-    // Armazena a resposta no cache por um determinado período por 5 minutos
-    cache.set(cacheKeyDirections, response.data, 300);
+    const modifiedResponse = {
+      ...response.data,
+      waypoints: waypoints.map(waypoint => {
+        const [latitude, longitude] = waypoint.split(',').map(parseFloat);
+        return { latitude, longitude };
+      })
+    };
 
-    res.json(response.data);
+    // Armazena a resposta no cache por um determinado período por 5 minutos
+    cache.set(cacheKeyDirections, modifiedResponse, 3600);
+
+    res.json(modifiedResponse);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

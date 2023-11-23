@@ -11,6 +11,7 @@ import { stops } from './service/stops';
 export class MapComponent implements OnInit {
   carPosition: CoordinatesProperties | null = null;
   polylineCoordinates: CoordinatesProperties[] = []
+  waypoints: any[] = [];
 
   coordinates: CoordinatesProperties[] = [];
   durationInSeconds: number = 0;
@@ -39,8 +40,10 @@ export class MapComponent implements OnInit {
 
       this.coordinates = res.coordinates;
       this.polylineCoordinates = res.coordinates;
-      this.durationInSeconds = res.durationInSeconds;
-      this.distanceInMeters = res.distanceInMeters;
+
+      console.log(res)
+
+      this.waypoints = res.waypoints;
 
       this.simulateCarMovement(this.coordinates);
 
@@ -55,11 +58,15 @@ export class MapComponent implements OnInit {
   async simulateCarMovement(coordinates: CoordinatesProperties[]): Promise<void> {
     for (const element of coordinates) {
       this.carPosition = element;
-      await this.delay(500);
+      await this.delay(5000);
     }
   }
 
   delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  trackByCoordinate(index: number, coordinate: any): string {
+    return `${coordinate.latitude}-${coordinate.longitude}`;
   }
 }

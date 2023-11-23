@@ -1,20 +1,32 @@
 <section class="map__component">
-  <h3>MAPA</h3>
-    <div>
-      <p>Tempo estimado: {{ durationInSeconds / 60 }}</p>
-      <p>Distancia em metros: {{ distanceInMeters }}</p>
+    <div *ngIf="waypoints.length > 0">
+      <p>Tempo estimado: <strong>{{ waypoints[0].duration }}</strong></p>
+      <p>Distancia: <strong>{{ waypoints[0].distance }}</strong></p>
     </div>
     <agm-map class="google-map" *ngIf="carPosition && polylineCoordinates.length > 0"
         [latitude]="carPosition.latitude"
         [longitude]="carPosition.longitude"
         [zoom]="14"
       >
-      <agm-marker [latitude]="carPosition.latitude" [longitude]="carPosition.longitude" title="Bus"></agm-marker>
+      <agm-marker class="marker"
+        [latitude]="carPosition.latitude"
+        [longitude]="carPosition.longitude"
+        title="Bus"
+        label="T"
+        ></agm-marker>
+
       <agm-polyline class="polyline" [editable]="false" strokeColor="#247ba0" [strokeWeight]="3">
-        <agm-polyline-point *ngFor="let coordinate of polylineCoordinates"
+        <agm-polyline-point *ngFor="let coordinate of polylineCoordinates; trackBy: trackByCoordinate"
           [latitude]="coordinate.latitude"
           [longitude]="coordinate.longitude"  >
         </agm-polyline-point>
       </agm-polyline>
+
+      <agm-marker class="waypoint-marker" *ngFor="let waypoint of waypoints"
+        [latitude]="waypoint.latitude"
+        [longitude]="waypoint.longitude"
+        title={{waypoint.name}}
+        [iconUrl]="'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'"
+        ></agm-marker>
   </agm-map>
 </section>
