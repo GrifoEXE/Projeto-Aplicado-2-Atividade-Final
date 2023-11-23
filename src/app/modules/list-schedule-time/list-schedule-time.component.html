@@ -1,5 +1,16 @@
 <div class="list">
-  <!-- Tela que lista todos os horários marcados, utilizar o componente abaixo (schedule) para item da lista com um ngFor -->
+  <section class="list__actions">
+    <button class="list__button" (click)="getDataFortaleza()" [ngClass]="{'list__button--toggle': toggleFortaleza }">
+      FORTALEZA
+    </button>
+    <button class="list__button" (click)="getDataAracati()" [ngClass]="{'list__button--toggle': toggleAracati}">
+      ARACATI
+    </button>
+    <button class="list__button" (click)="getDataFortim()" [ngClass]="{'list__button--toggle': toogleFortim}">
+      FORTIM
+    </button>
+  </section>
+
   <div *ngFor="let item of data">
     <app-scheduled-time [data]="item"></app-scheduled-time>
   </div>
