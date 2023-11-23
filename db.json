@@ -25,7 +25,7 @@
       "name": "MERCADO PÚBLICO",
       "address": "RUA SÃO PAULO 186",
       "city": "FORTIM",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": 4,
@@ -52,7 +52,7 @@
       "name": "SUPERMERCADO FRANGOLÂNDIA ",
       "address": "RUA DRAGÃO DO MAR 698",
       "city": "ARACATI",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": 7,
@@ -106,7 +106,7 @@
       "name": "PARADA ACREF",
       "address": "RUA MAURO CAVALCANTE 325",
       "city": "FORTIM",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": 13,
@@ -133,7 +133,7 @@
       "name": "PRAÇA MONSENHOR BRUNO",
       "address": "RUA CORONEL POMPEU 835",
       "city": "ARACATI",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": 16,
