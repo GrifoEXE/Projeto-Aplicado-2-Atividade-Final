@@ -1,0 +1,27 @@
+const stops = [
+  'Terminal Papicu, Fortaleza, Ceará, Brasil',
+  'Avenida Farias Brito, 179, Varjota, Fortaleza, Ceará, Brasil',
+  'Avenida Dom Luís | Harmony Medical Center - Meireles, Fortaleza, Ceará, Brasil',
+  'Avenida Dom Luís, 705, Meireles, Fortaleza, Ceará, Brasil',
+  'Avenida Dom Luís, 230, Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo | Areninha Campo Do América - Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo, 1755, Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo, 1489, Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo, 1251, Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo | Secretaria Da Administração Penitenciária - Meireles, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo, 765, Centro, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo, 595, Centro, Fortaleza, Ceará, Brasil',
+  'Rua Tenente Benévolo | Faculdade Católica De Fortaleza - Centro, Fortaleza, Ceará, Brasil',
+  'Avenida Dom Manuel, 140, Centro, Fortaleza, Ceará, Brasil',
+  // 'Avenida Dom Manuel, 470, Centro, Fortaleza, Ceará, Brasil',
+  // 'Avenida Dom Manuel | Praça Pajeú - Centro, Fortaleza, Ceará, Brasil',
+  // 'Avenida Heráclito Graça | Hospital Luís França - Centro, Fortaleza, Ceará, Brasil',
+  // 'Avenida Duque De Caxias, S/N, Centro, Fortaleza, Ceará, Brasil',
+  // 'Avenida Duque De Caxias, 808, Centro, Fortaleza, Ceará, Brasil',
+  // 'Rua General Sampaio I Shopping Camelo - Centro, Fortaleza, Ceará, Brasil',
+  // 'Rua General Sampaio | Shopping Central - Centro, Fortaleza, Ceará, Brasil',
+  // 'Rua General Sampaio | Freitas Varejo - Centro, Fortaleza, Ceará, Brasil',
+  // 'Rua Castro E Silva, 166, Centro, Fortaleza, Ceará, Brasil',
+];
+
+export { stops };
