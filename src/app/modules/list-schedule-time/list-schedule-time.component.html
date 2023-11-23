@@ -13,11 +13,11 @@
   </section>
 
   <div *ngFor="let item of data">
-    <app-scheduled-time [data]="item"></app-scheduled-time>
+    <app-scheduled-time [data]="item" (reloadCity)="receiveEvent($event)"></app-scheduled-time>
   </div>
 
   <div *ngIf="listIsEmpty" class="list__message">
-    <span>Ainda não há favoritos!</span>
+    <span>Ainda não há horários marcados!</span>
   </div>
 
   <div *ngIf="error" class="list__message">

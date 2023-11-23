@@ -1,6 +1,6 @@
 
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ScheduleTime } from '../../interfaces/schedule-time.interface';
 import { ScheduleService } from 'src/app/core/services/schedule.service';
 import { Router } from '@angular/router';
@@ -13,19 +13,17 @@ import { Router } from '@angular/router';
 })
 export class ScheduledTimeComponent {
   @Input() data!: ScheduleTime;
+  @Output() reloadCity: EventEmitter<string> = new EventEmitter();
 
   constructor(private scheduleService: ScheduleService, private router: Router) { }
 
   public editScheduleTime(data: ScheduleTime): void {
-    this.scheduleService.editScheduleFavoriteList(data).subscribe();
-    this.reloadCurrentRoute();
+    this.scheduleService.editScheduleList(data).subscribe({
+      next: () => this.reloadCurrentRoute()
+    });
   }
 
-  /* TODO: Melhorar método para inicializar a cada cidade */
   private reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
+    this.reloadCity.emit(this.data.city)
   }
 }

@@ -27,9 +27,38 @@ export class FavoritesScheduleTimeComponent implements OnInit {
     this.getDataFavoritesSchedule('');
   }
 
+  public receiveEvent(city: string): void {
+    this.getDataFavoritesSchedule(city);
+  }
+
+  public getDataFortaleza(): void {
+    this.toggleFortaleza = true;
+    this.toggleAracati = false;
+    this.toogleFortim = false;
+    this.isFirstCall = false;
+    this.getDataFavoritesSchedule('FORTALEZA');
+  }
+
+  public getDataAracati(): void {
+    this.toggleFortaleza = false;
+    this.toggleAracati = true;
+    this.toogleFortim = false;
+    this.isFirstCall = false;
+    this.getDataFavoritesSchedule('ARACATI');
+  }
+
+  public getDataFortim(): void {
+    this.toggleFortaleza = false;
+    this.toggleAracati = false;
+    this.toogleFortim = true;
+    this.isFirstCall = false;
+    this.getDataFavoritesSchedule('FORTIM');
+  }
+
   private getDataFavoritesSchedule(cityName: string): void {
-    this.scheduleService.getScheduleFavoriteList().subscribe({
+    this.scheduleService.getScheduleList().subscribe({
       next: (response: ScheduleTime[]) => {
+        this.data = [];
         if (response.length) {
           this.mapDataCity(response, cityName)
         }
@@ -39,33 +68,6 @@ export class FavoritesScheduleTimeComponent implements OnInit {
         this.listIsEmpty = false;
       }
     })
-  }
-
-  public getDataFortaleza(): void {
-    this.data = [];
-    this.toggleFortaleza = true;
-    this.toggleAracati = false;
-    this.toogleFortim = false;
-    this.isFirstCall = false;
-    this.getDataFavoritesSchedule('FORTALEZA');
-  }
-
-  public getDataAracati(): void {
-    this.data = [];
-    this.toggleFortaleza = false;
-    this.toggleAracati = true;
-    this.toogleFortim = false;
-    this.isFirstCall = false;
-    this.getDataFavoritesSchedule('ARACATI');
-  }
-
-  public getDataFortim(): void {
-    this.data = [];
-    this.toggleFortaleza = false;
-    this.toggleAracati = false;
-    this.toogleFortim = true;
-    this.isFirstCall = false;
-    this.getDataFavoritesSchedule('FORTIM');
   }
 
   private mapDataCity(schedule: ScheduleTime[], cityName: string): void {

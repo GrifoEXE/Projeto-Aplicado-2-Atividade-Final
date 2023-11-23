@@ -26,6 +26,10 @@ export class ListScheduleTimeComponent implements OnInit {
     this.getDataFavoritesSchedule('');
   }
 
+  public receiveEvent(city: string): void {
+    this.getDataFavoritesSchedule(city);
+  }
+
   public getDataFortaleza(): void {
     this.data = [];
     this.toggleFortaleza = true;
@@ -54,8 +58,9 @@ export class ListScheduleTimeComponent implements OnInit {
   }
 
   private getDataFavoritesSchedule(cityName: string): void {
-    this.scheduleService.getScheduleFavoriteList().subscribe({
+    this.scheduleService.getScheduleList().subscribe({
       next: (response: ScheduleTime[]) => {
+        this.data = [];
         if (response.length) {
           this.mapDataCity(response, cityName)
         }
