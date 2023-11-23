@@ -28,14 +28,16 @@ export class FavoritesScheduleTimeComponent implements OnInit {
   }
 
   private getDataFavoritesSchedule(cityName: string): void {
-    this.scheduleService.getScheduleFavoriteList().subscribe((response: ScheduleTime[]) => {
-      if (response.length) {
-        this.mapDataCity(response, cityName);
+    this.scheduleService.getScheduleFavoriteList().subscribe({
+      next: (response: ScheduleTime[]) => {
+        if (response.length) {
+          this.mapDataCity(response, cityName)
+        }
+        this.error = false;
+      }, error: () => {
+        this.error = true;
+        this.listIsEmpty = false;
       }
-      this.error = false;
-    }, () => {
-      this.error = true;
-      this.listIsEmpty = false;
     })
   }
 
