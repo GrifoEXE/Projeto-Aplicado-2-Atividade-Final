@@ -1,4 +1,26 @@
-<p>list-schedule-time works!</p>
+<div class="list">
+  <section class="list__actions">
+    <button class="list__button" (click)="getDataFortaleza()"
+      [ngClass]="{ 'list__button--toggle': toggleFortaleza, 'list__button--first-call': isFirstCall }">
+      FORTALEZA
+    </button>
+    <button class="list__button" (click)="getDataAracati()" [ngClass]="{ 'list__button--toggle': toggleAracati }">
+      ARACATI
+    </button>
+    <button class="list__button" (click)="getDataFortim()" [ngClass]="{ 'list__button--toggle': toogleFortim }">
+      FORTIM
+    </button>
+  </section>
 
-<!-- Tela que lista todos os horários marcados, utilizar o componente abaixo (schedule) para item da lista com um ngFor -->
-<app-scheduled-time></app-scheduled-time>
+  <div *ngFor="let item of data">
+    <app-scheduled-time [data]="item" (reloadCity)="receiveEvent($event)"></app-scheduled-time>
+  </div>
+
+  <div *ngIf="listIsEmpty" class="list__message">
+    <span>Ainda não há horários marcados!</span>
+  </div>
+
+  <div *ngIf="error" class="list__message">
+    <span>Ocorreu um erro :( Tente novamente mais tarde. </span>
+  </div>
+</div>
