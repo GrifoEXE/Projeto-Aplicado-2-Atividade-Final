@@ -1,6 +1,7 @@
 <div class="list">
   <section class="list__actions">
-    <button class="list__button" (click)="getDataFortaleza()" [ngClass]="{ 'list__button--toggle': toggleFortaleza }">
+    <button class="list__button" (click)="getDataFortaleza()"
+      [ngClass]="{ 'list__button--toggle': toggleFortaleza, 'list__button--first-call': isFirstCall }">
       FORTALEZA
     </button>
     <button class="list__button" (click)="getDataAracati()" [ngClass]="{ 'list__button--toggle': toggleAracati }">
@@ -12,6 +13,14 @@
   </section>
 
   <div *ngFor="let item of data">
-    <app-scheduled-time [data]="item"></app-scheduled-time>
+    <app-scheduled-time [data]="item" (reloadCity)="receiveEvent($event)"></app-scheduled-time>
+  </div>
+
+  <div *ngIf="listIsEmpty" class="list__message">
+    <span>Ainda não há horários marcados!</span>
+  </div>
+
+  <div *ngIf="error" class="list__message">
+    <span>Ocorreu um erro :( Tente novamente mais tarde. </span>
   </div>
 </div>

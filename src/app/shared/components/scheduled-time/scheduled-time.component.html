@@ -1,12 +1,13 @@
 <div class="schedule">
   <div class="schedule__data">
     <button class="schedule__button-point" (click)="modal.toggle()">
-      {{ data?.point }}
+      {{ data.point }}
     </button>
-    <span class="schedule__date">{{ data?.date }}</span>
+    <span class="schedule__date">{{ data.date }}</span>
   </div>
-  <button class="schedule__button-favorite">
-    <span class="schedule__icon-favorite material-symbols-outlined">
+  <button class="schedule__button-favorite" (click)="editScheduleTime(data)">
+    <span class="schedule__icon-favorite material-symbols-outlined"
+      [ngClass]="{ 'schedule__icon-favorite--yellow': data.isFavorite }">
       star
     </span>
   </button>
@@ -16,12 +17,12 @@
   <div class="modal">
     <div class="modal__data">
       <span class="modal__button-point">
-        {{ data?.point }}
+        {{ data.point }}
       </span>
       <div class="modal__info">
-        <span class="modal__text">{{ data?.name }}</span>
+        <span class="modal__text">{{ data.name }}</span>
         <span class="modal__text modal__text--middle">Endereço:</span>
-        <span class="modal__text modal__text--smaller">{{ data?.address }}</span>
+        <span class="modal__text modal__text--smaller">{{ data.address }}</span>
       </div>
     </div>
   </div>

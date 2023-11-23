@@ -1,0 +1,166 @@
+{
+  "schedule": [
+    {
+      "id": 1,
+      "point": "A",
+      "date": "SEG - 08:00",
+      "name": "TERMINAL RODOVIÁRIO ENGENHEIRO JOÃO TOMÉ",
+      "address": "AVENIDA BORGES DE MELO 1630",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 2,
+      "point": "B",
+      "date": "SEG - 09:00",
+      "name": "RODOVIÁRIA DE MESSEJANA",
+      "address": "RUA GRANJA CASTELO 260",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 3,
+      "point": "C",
+      "date": "SEG - 10:40",
+      "name": "MERCADO PÚBLICO",
+      "address": "RUA SÃO PAULO 186",
+      "city": "FORTIM",
+      "isFavorite": true
+    },
+    {
+      "id": 4,
+      "point": "D",
+      "date": "SEG - 10:45",
+      "name": "PARADA ACREF",
+      "address": "RUA MAURO CAVALCANTE 325",
+      "city": "FORTIM",
+      "isFavorite": true
+    },
+    {
+      "id": 5,
+      "point": "E",
+      "date": "SEG - 11:05",
+      "name": "PRAÇA MONSENHOR BRUNO",
+      "address": "RUA CORONEL POMPEU 835",
+      "city": "ARACATI",
+      "isFavorite": false
+    },
+    {
+      "id": 6,
+      "point": "F",
+      "date": "SEG - 11:10",
+      "name": "SUPERMERCADO FRANGOLÂNDIA ",
+      "address": "RUA DRAGÃO DO MAR 698",
+      "city": "ARACATI",
+      "isFavorite": true
+    },
+    {
+      "id": 7,
+      "point": "A",
+      "date": "QUI - 10:00",
+      "name": "TERMINAL RODOVIÁRIO ENGENHEIRO JOÃO TOMÉ",
+      "address": "AVENIDA BORGES DE MELO 1630",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 8,
+      "point": "B",
+      "date": "QUI - 11:00",
+      "name": "RODOVIÁRIA DE MESSEJANA",
+      "address": "RUA GRANJA CASTELO 260",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 9,
+      "point": "C",
+      "date": "QUI - 12:05",
+      "name": "PRAÇA MONSENHOR BRUNO",
+      "address": "RUA CORONEL POMPEU 835",
+      "city": "ARACATI",
+      "isFavorite": false
+    },
+    {
+      "id": 10,
+      "point": "D",
+      "date": "QUI - 12:10",
+      "name": "SUPERMERCADO FRANGOLÂNDIA ",
+      "address": "RUA DRAGÃO DO MAR 698",
+      "city": "ARACATI",
+      "isFavorite": false
+    },
+    {
+      "id": 11,
+      "point": "E",
+      "date": "QUI - 11:40",
+      "name": "MERCADO PÚBLICO",
+      "address": "RUA SÃO PAULO 186",
+      "city": "FORTIM",
+      "isFavorite": false
+    },
+    {
+      "id": 12,
+      "point": "F",
+      "date": "SEG - 11:45",
+      "name": "PARADA ACREF",
+      "address": "RUA MAURO CAVALCANTE 325",
+      "city": "FORTIM",
+      "isFavorite": true
+    },
+    {
+      "id": 13,
+      "point": "A",
+      "date": "SAB - 13:00",
+      "name": "TERMINAL RODOVIÁRIO ENGENHEIRO JOÃO TOMÉ",
+      "address": "AVENIDA BORGES DE MELO 1630",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 14,
+      "point": "B",
+      "date": "SAB - 14:00",
+      "name": "RODOVIÁRIA DE MESSEJANA",
+      "address": "RUA GRANJA CASTELO 260",
+      "city": "FORTALEZA",
+      "isFavorite": false
+    },
+    {
+      "id": 15,
+      "point": "C",
+      "date": "SAB - 15:05",
+      "name": "PRAÇA MONSENHOR BRUNO",
+      "address": "RUA CORONEL POMPEU 835",
+      "city": "ARACATI",
+      "isFavorite": true
+    },
+    {
+      "id": 16,
+      "point": "D",
+      "date": "SAB - 15:10",
+      "name": "SUPERMERCADO FRANGOLÂNDIA ",
+      "address": "RUA DRAGÃO DO MAR 698",
+      "city": "ARACATI",
+      "isFavorite": false
+    },
+    {
+      "id": 17,
+      "point": "E",
+      "date": "SAB - 14:40",
+      "name": "MERCADO PÚBLICO",
+      "address": "RUA SÃO PAULO 186",
+      "city": "FORTIM",
+      "isFavorite": false
+    },
+    {
+      "id": 18,
+      "point": "F",
+      "date": "SAB  - 14:45",
+      "name": "PARADA ACREF",
+      "address": "RUA MAURO CAVALCANTE 325",
+      "city": "FORTIM",
+      "isFavorite": true
+    }
+  ]
+}

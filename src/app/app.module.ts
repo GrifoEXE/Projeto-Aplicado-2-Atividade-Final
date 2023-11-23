@@ -10,6 +10,8 @@ import { FavoritesScheduleTimeComponent } from './modules/favorites-schedule-tim
 import { ListScheduleTimeComponent } from './modules/list-schedule-time/list-schedule-time.component';
 import { SharedModule } from './shared/shared.module';
 import { MainframeComponent } from './modules/mainframe/pages/mainframe.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MainframeComponent } from './modules/mainframe/pages/mainframe.componen
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
