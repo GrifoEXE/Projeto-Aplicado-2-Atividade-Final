@@ -1,5 +1,15 @@
 <div class="favorites">
-  <p>favorites-schedule-time works!</p>
-
-  <!-- tela que lista todos os horários marcados favoritos -->
+  <section class="favorites__actions">
+    <button class="favorites__button" (click)="getDataFortaleza()"
+      [ngClass]="{ 'favorites__button--toggle': toggleFortaleza }">
+      FORTALEZA
+    </button>
+    <button class="favorites__button" (click)="getDataAracati()"
+      [ngClass]="{ 'favorites__button--toggle': toggleAracati }">
+      ARACATI
+    </button>
+    <button class="favorites__button" (click)="getDataFortim()" [ngClass]="{'favorites__button--toggle': toogleFortim}">
+      FORTIM
+    </button>
+  </section>
 </div>
