@@ -1,5 +1,6 @@
 <section class="footer">
-  <button class="footer-button" (click)="navigateToMap()" [ngClass]="{'footer-button__icon--toggle': toggleMap }">
+  <button class="footer-button" (click)="navigateToMap()"
+    [ngClass]="{ 'footer-button__icon--toggle': toggleMap, 'footer-button__icon--firstCall': isFirstCall}">
     <span class="footer-button__icon material-symbols-outlined">
       pin_drop
     </span>

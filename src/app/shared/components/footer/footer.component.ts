@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,14 +6,21 @@ import { Router } from '@angular/router';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   toggleMap: boolean = false;
   toggleList: boolean = false;
   toggleFavorites: boolean = false;
 
+  isFirstCall: boolean = false;
+
   constructor(private router: Router) { }
 
+  ngOnInit(): void {
+    this.isFirstCall = true;
+  }
+
   navigateToMap(): void {
+    this.isFirstCall = false;
     this.toggleMap = true;
     this.toggleList = false;
     this.toggleFavorites = false;
@@ -21,6 +28,7 @@ export class FooterComponent {
   }
 
   navigateToList(): void {
+    this.isFirstCall = false;
     this.toggleMap = false;
     this.toggleList = true;
     this.toggleFavorites = false;
@@ -28,6 +36,7 @@ export class FooterComponent {
   }
 
   navigateToFavorites(): void {
+    this.isFirstCall = false;
     this.toggleMap = false;
     this.toggleList = false;
     this.toggleFavorites = true;
