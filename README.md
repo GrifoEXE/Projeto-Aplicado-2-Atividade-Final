@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.3.
 
+## Install angular Dependencies
+
+Run `npm install --f` for install angular maps dependencies
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -11,6 +15,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Development gcp api
+
+Go into the gcp_api folder and run `npm install`
 
 Run `npm run gcp:api` for run gcp apis (geocode and directions) apis for real-time localization tracking.
 - You need to create an API key in GCP to associate with the active GCP services of MAPS
