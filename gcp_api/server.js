@@ -43,7 +43,7 @@ app.post('/api/directions', async (req, res) => {
   destination = await geocodeAddress(destination);
   waypoints = await Promise.all(waypoints.map(geocodeAddress));
 
-  const waypointsString = waypoints.length > 0 ? `&waypoints=${waypoints.join('|')}` : '';
+  const waypointsString = waypoints.length > 0 ? `waypoints=${waypoints.map(waypoint => `via:${waypoint.latitude},${waypoint.longitude}`).join('|')}` : '';
 
   const cacheKeyDirections = `directions-${origin}-${destination}-${waypointsString}`;
 
