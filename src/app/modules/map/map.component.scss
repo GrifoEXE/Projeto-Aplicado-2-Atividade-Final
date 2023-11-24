@@ -1,13 +1,20 @@
+@import '/src/styles/variables.scss';
+
 .map__component {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 80vh;
+  overflow: auto;
+  background-color: $white-box;
 
   .google-map {
-    margin: 20px;
-    height: 550px;
-    width: 680px;
+    margin: 0;
+    padding: 0;
+    height: 79vh;
+    width: 100%;
   }
 
   agm-info-window {
