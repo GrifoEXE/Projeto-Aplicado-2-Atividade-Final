@@ -5,8 +5,6 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ScheduledTimeComponent } from './components/scheduled-time/scheduled-time.component';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,

@@ -13,21 +13,21 @@ export class FooterComponent {
 
   constructor(private router: Router) { }
 
-  public navigateToMap(): void {
+  navigateToMap(): void {
     this.toggleMap = true;
     this.toggleList = false;
     this.toggleFavorites = false;
     this.router.navigate(['/board']);
   }
 
-  public navigateToList(): void {
+  navigateToList(): void {
     this.toggleMap = false;
     this.toggleList = true;
     this.toggleFavorites = false;
     this.router.navigate(['/board/horarios']);
   }
 
-  public navigateToFavorites(): void {
+  navigateToFavorites(): void {
     this.toggleMap = false;
     this.toggleList = false;
     this.toggleFavorites = true;

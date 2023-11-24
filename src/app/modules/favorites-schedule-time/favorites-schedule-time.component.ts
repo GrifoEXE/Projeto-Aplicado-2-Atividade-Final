@@ -9,7 +9,7 @@ import { ScheduleService } from '../../core/services/schedule.service';
   styleUrls: ['./favorites-schedule-time.component.scss']
 })
 export class FavoritesScheduleTimeComponent implements OnInit {
-  data: ScheduleTime[] = []
+  schedule: ScheduleTime[] = []
 
   toggleFortaleza: boolean = false;
   toggleAracati: boolean = false;
@@ -27,11 +27,11 @@ export class FavoritesScheduleTimeComponent implements OnInit {
     this.getDataFavoritesSchedule('');
   }
 
-  public receiveEvent(city: string): void {
+  reloadDataFavorites(city: string): void {
     this.getDataFavoritesSchedule(city);
   }
 
-  public getDataFortaleza(): void {
+  getDataFortaleza(): void {
     this.toggleFortaleza = true;
     this.toggleAracati = false;
     this.toogleFortim = false;
@@ -39,7 +39,7 @@ export class FavoritesScheduleTimeComponent implements OnInit {
     this.getDataFavoritesSchedule('FORTALEZA');
   }
 
-  public getDataAracati(): void {
+  getDataAracati(): void {
     this.toggleFortaleza = false;
     this.toggleAracati = true;
     this.toogleFortim = false;
@@ -47,7 +47,7 @@ export class FavoritesScheduleTimeComponent implements OnInit {
     this.getDataFavoritesSchedule('ARACATI');
   }
 
-  public getDataFortim(): void {
+  getDataFortim(): void {
     this.toggleFortaleza = false;
     this.toggleAracati = false;
     this.toogleFortim = true;
@@ -58,7 +58,7 @@ export class FavoritesScheduleTimeComponent implements OnInit {
   private getDataFavoritesSchedule(cityName: string): void {
     this.scheduleService.getScheduleList().subscribe({
       next: (response: ScheduleTime[]) => {
-        this.data = [];
+        this.schedule = [];
         if (response.length) {
           this.mapDataCity(response, cityName)
         }
@@ -81,13 +81,13 @@ export class FavoritesScheduleTimeComponent implements OnInit {
 
   private getCityData(schedule: ScheduleTime, cityName: string): void {
     if (schedule.city === cityName && schedule.isFavorite) {
-      this.data.push(schedule);
+      this.schedule.push(schedule);
     }
     this.verifyList();
   }
 
   private verifyList(): void {
-    if (!this.data.length) {
+    if (!this.schedule.length) {
       this.listIsEmpty = true;
     } else {
       this.listIsEmpty = false;

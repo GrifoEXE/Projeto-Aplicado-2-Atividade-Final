@@ -12,8 +12,8 @@
     </button>
   </section>
 
-  <div *ngFor="let item of data">
-    <app-scheduled-time [data]="item" (reloadCity)="receiveEvent($event)"></app-scheduled-time>
+  <div *ngFor="let item of schedule">
+    <app-scheduled-time [schedule]="item" (reloadCity)="reloadData($event)"></app-scheduled-time>
   </div>
 
   <div *ngIf="listIsEmpty" class="list__message">

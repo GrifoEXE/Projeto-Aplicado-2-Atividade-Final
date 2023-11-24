@@ -8,7 +8,7 @@ import { ScheduleTime } from 'src/app/shared/interfaces/schedule-time.interface'
   styleUrls: ['./list-schedule-time.component.scss']
 })
 export class ListScheduleTimeComponent implements OnInit {
-  data: ScheduleTime[] = []
+  schedule: ScheduleTime[] = []
 
   toggleFortaleza: boolean = false;
   toggleAracati: boolean = false;
@@ -23,44 +23,41 @@ export class ListScheduleTimeComponent implements OnInit {
   ngOnInit(): void {
     this.isFirstCall = true;
     this.listIsEmpty = false;
-    this.getDataFavoritesSchedule('');
+    this.getDataSchedule('');
   }
 
-  public receiveEvent(city: string): void {
-    this.getDataFavoritesSchedule(city);
+  reloadData(city: string): void {
+    this.getDataSchedule(city);
   }
 
-  public getDataFortaleza(): void {
-    this.data = [];
+  getDataFortaleza(): void {
     this.toggleFortaleza = true;
     this.toggleAracati = false;
     this.toogleFortim = false;
     this.isFirstCall = false;
-    this.getDataFavoritesSchedule('FORTALEZA');
+    this.getDataSchedule('FORTALEZA');
   }
 
-  public getDataAracati(): void {
-    this.data = [];
+  getDataAracati(): void {
     this.toggleFortaleza = false;
     this.toggleAracati = true;
     this.toogleFortim = false;
     this.isFirstCall = false;
-    this.getDataFavoritesSchedule('ARACATI');
+    this.getDataSchedule('ARACATI');
   }
 
-  public getDataFortim(): void {
-    this.data = [];
+  getDataFortim(): void {
     this.toggleFortaleza = false;
     this.toggleAracati = false;
     this.toogleFortim = true;
     this.isFirstCall = false;
-    this.getDataFavoritesSchedule('FORTIM');
+    this.getDataSchedule('FORTIM');
   }
 
-  private getDataFavoritesSchedule(cityName: string): void {
+  private getDataSchedule(cityName: string): void {
     this.scheduleService.getScheduleList().subscribe({
       next: (response: ScheduleTime[]) => {
-        this.data = [];
+        this.schedule = [];
         if (response.length) {
           this.mapDataCity(response, cityName)
         }
@@ -83,13 +80,13 @@ export class ListScheduleTimeComponent implements OnInit {
 
   private getCityData(schedule: ScheduleTime, cityName: string): void {
     if (schedule.city === cityName) {
-      this.data.push(schedule);
+      this.schedule.push(schedule);
     }
     this.verifyList();
   }
 
   private verifyList(): void {
-    if (!this.data.length) {
+    if (!this.schedule.length) {
       this.listIsEmpty = true;
     } else {
       this.listIsEmpty = false;
