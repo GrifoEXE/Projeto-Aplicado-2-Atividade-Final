@@ -37,46 +37,35 @@ export class MapService {
             const durationInSeconds = route.legs.reduce((total: number, leg: any) => total + leg.duration.value, 0);
             const distanceInMeters = route.legs.reduce((total: number, leg: any) => total + leg.distance.value, 0);
 
-            const stepNames = stops;
-            stepNames.shift();
-            stepNames.pop();
-
             waypointsCoordinates.shift();
             waypointsCoordinates.pop();
 
-            // Mapeie os waypoints para incluir nome, latitude, longitude e informações dos passos
-            const waypoints = route.legs.reduce((acc: any[], leg: any) => {
-              // inicio
-              acc.push({
-                name: leg.start_address,
-                distance: leg.distance.text,
-                duration: leg.duration.text,
-                latitude: leg.start_location.lat,
-                longitude: leg.start_location.lng
-              });
+            const { start_address, end_address, distance, duration, start_location, end_location } = route.legs[0];
 
-              // waypoints
-              leg.steps.forEach((step: any, index: number) => {
-                acc.push({
-                  name: stepNames[index],
-                  distance: step.distance.text,
-                  duration: step.duration.text,
-                  latitude: waypointsCoordinates[index].latitude,
-                  longitude: waypointsCoordinates[index].longitude
-                });
-              });
+            const mergedWaypoints = waypointsCoordinates.map((coordinate: { latitude: number, longitude: number }, index: number) => {
+              return {
+                ...coordinate,
+                name: stops[index]
+              };
+            });
 
-              // final
-              acc.push({
-                name: leg.end_address,
-                distance: leg.distance.text,
-                duration: leg.duration.text,
-                latitude: leg.end_location.lat,
-                longitude: leg.end_location.lng
-              });
-
-              return acc;
-            }, []);
+            const waypoints = [
+              {
+                name: start_address,
+                distance: distance.text,
+                duration: duration.text,
+                latitude: start_location.lat,
+                longitude: start_location.lng
+              },
+              ...mergedWaypoints,
+              {
+                name: end_address,
+                distance: distance.text,
+                duration: duration.text,
+                latitude: end_location.lat,
+                longitude: end_location.lng
+              }
+            ];
 
             return { coordinates, durationInSeconds, distanceInMeters, waypoints };
           } else {
