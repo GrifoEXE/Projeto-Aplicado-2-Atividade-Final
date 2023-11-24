@@ -7,11 +7,11 @@ import { CoordinatesProperties } from '../model/map.model';
   providedIn: 'root'
 })
 export class MapService {
-  private baseUrl = 'http://localhost:3000/api/directions'; // Aponte para o seu servidor Node.js
+  private baseUrl = 'http://localhost:3001/api/directions'; // Aponte para o seu servidor Node.js
 
   constructor(
     private http: HttpClient,
-  ) {}
+  ) { }
 
   getStops(stops: string[]): Observable<any> {
     const origin = stops[0];

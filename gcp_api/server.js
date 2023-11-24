@@ -5,7 +5,7 @@ const axios = require('axios');
 const cors = require('cors');
 const NodeCache = require('node-cache');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.json());
 app.use(cors());
@@ -25,12 +25,15 @@ app.post('/api/directions', async (req, res) => {
       return cachedResponse;
     }
 
-    const geocodeResponse = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address,
-        key: apiKey,
-      },
-    });
+    const geocodeResponse = await axios.get(
+      'https://maps.googleapis.com/maps/api/geocode/json',
+      {
+        params: {
+          address,
+          key: apiKey
+        }
+      }
+    );
 
     const location = geocodeResponse.data.results[0].geometry.location;
 
@@ -43,7 +46,12 @@ app.post('/api/directions', async (req, res) => {
   destination = await geocodeAddress(destination);
   waypoints = await Promise.all(waypoints.map(geocodeAddress));
 
-  const waypointsString = waypoints.length > 0 ? `waypoints=${waypoints.map(waypoint => `via:${waypoint.latitude},${waypoint.longitude}`).join('|')}` : '';
+  const waypointsString =
+    waypoints.length > 0
+      ? `waypoints=${waypoints
+          .map((waypoint) => `via:${waypoint.latitude},${waypoint.longitude}`)
+          .join('|')}`
+      : '';
 
   const cacheKeyDirections = `directions-${origin}-${destination}-${waypointsString}`;
 
@@ -54,18 +62,21 @@ app.post('/api/directions', async (req, res) => {
   }
 
   try {
-    const response = await axios.get('https://maps.googleapis.com/maps/api/directions/json', {
-      params: {
-        origin,
-        destination,
-        key: apiKey,
-        ...waypointsString,
-      },
-    });
+    const response = await axios.get(
+      'https://maps.googleapis.com/maps/api/directions/json',
+      {
+        params: {
+          origin,
+          destination,
+          key: apiKey,
+          ...waypointsString
+        }
+      }
+    );
 
     const modifiedResponse = {
       ...response.data,
-      waypoints: waypoints.map(waypoint => {
+      waypoints: waypoints.map((waypoint) => {
         const [latitude, longitude] = waypoint.split(',').map(parseFloat);
         return { latitude, longitude };
       })
