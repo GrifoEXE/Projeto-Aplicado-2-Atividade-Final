@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public hour = '';
+  hour = '';
 
   constructor(private router: Router) { }
 
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
     setInterval(() => { this.loadTime() }, 1000);
   }
 
-  public navigateToHome(): void {
+  navigateToHome(): void {
     this.router.navigate(['/']);
   }
 

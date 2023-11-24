@@ -12,18 +12,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./scheduled-time.component.scss']
 })
 export class ScheduledTimeComponent {
-  @Input() data!: ScheduleTime;
+  @Input() schedule!: ScheduleTime;
   @Output() reloadCity: EventEmitter<string> = new EventEmitter();
 
   constructor(private scheduleService: ScheduleService, private router: Router) { }
 
-  public editScheduleTime(data: ScheduleTime): void {
-    this.scheduleService.editScheduleList(data).subscribe({
+  updateScheduleTime(schedule: ScheduleTime): void {
+    this.scheduleService.updateSchedule(schedule).subscribe({
       next: () => this.reloadCurrentRoute()
     });
   }
 
   private reloadCurrentRoute() {
-    this.reloadCity.emit(this.data.city)
+    this.reloadCity.emit(this.schedule.city)
   }
 }

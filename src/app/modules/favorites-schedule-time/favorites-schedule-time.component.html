@@ -3,7 +3,7 @@
     <span class="favorites__title">FAVORITOS</span>
     <div class="favorites__actions">
       <button class="favorites__button" (click)="getDataFortaleza()"
-        [ngClass]="{ 'favorites__button--toggle': toggleFortaleza, 'favorites__button--first-call': isFirstCall  }">
+        [ngClass]="{ 'favorites__button--toggle': toggleFortaleza, 'favorites__button--first-call': isFirstCall }">
         FORTALEZA
       </button>
       <button class="favorites__button" (click)="getDataAracati()"
@@ -17,8 +17,8 @@
     </div>
   </section>
 
-  <div *ngFor="let item of data">
-    <app-scheduled-time [data]="item" (reloadCity)="receiveEvent($event)"></app-scheduled-time>
+  <div *ngFor="let item of schedule">
+    <app-scheduled-time [schedule]="item" (reloadCity)="reloadDataFavorites($event)"></app-scheduled-time>
   </div>
 
   <div *ngIf="listIsEmpty" class="favorites__message">

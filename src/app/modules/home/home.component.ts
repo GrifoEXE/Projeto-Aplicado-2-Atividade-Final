@@ -10,7 +10,7 @@ export class HomeComponent {
 
   constructor(private router: Router) { }
 
-  public navigateToMap(): void {
+  navigateToMap(): void {
     this.router.navigate(['/board']);
   }
 }

@@ -34,7 +34,7 @@ import {
 export class ModalComponent {
   show: boolean = false;
 
-  public toggle() {
+  toggle() {
     this.show = !this.show;
   }
 }

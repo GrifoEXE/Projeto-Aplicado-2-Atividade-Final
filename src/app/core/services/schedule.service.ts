@@ -10,11 +10,11 @@ export class ScheduleService {
 
   constructor(private http: HttpClient) { }
 
-  public getScheduleList(): Observable<ScheduleTime[]> {
+  getScheduleList(): Observable<ScheduleTime[]> {
     return this.http.get<ScheduleTime[]>('http://localhost:3000/schedule');
   }
 
-  public editScheduleList(scheduleData: ScheduleTime): Observable<ScheduleTime[]> {
+  updateSchedule(scheduleData: ScheduleTime): Observable<ScheduleTime[]> {
     const schedule: ScheduleTime = {
       ...scheduleData,
       isFavorite: !scheduleData.isFavorite
